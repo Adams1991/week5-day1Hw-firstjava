@@ -9,7 +9,7 @@ public class PrinterTest {
 
     @Before
     public void before() {
-        printer = new Printer(100);
+        printer = new Printer(100, 1000);
     }
 
     @Test
@@ -28,6 +28,12 @@ public class PrinterTest {
         printer.print(10, 2);
         printer.refill(10);
         assertEquals(90, printer.getSheets());
+    }
+
+    @Test
+    public void canReduceToner(){
+        printer.print( 10, 10);
+        assertEquals(900, printer.getTonerVolume());
     }
 }
 
